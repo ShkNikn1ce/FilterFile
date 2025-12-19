@@ -1,5 +1,7 @@
 plugins {
     id 'java'
+    id 'application'
+    id 'com.github.johnrengelman.shadow' version '8.1.1'
 }
 
 group = 'com.example'
@@ -9,10 +11,14 @@ repositories {
     mavenCentral()
 }
 
+application {
+    mainClass = 'com.example.OptionFilter'
+}
+
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'
-    implementation("commons-cli:commons-cli:1.6.0")
+    implementation("commons-cli:commons-cli:1.11.0")
 }
 
 test {

@@ -125,6 +125,7 @@
 package com.example;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 
 public class Main {
 
@@ -140,15 +141,16 @@ public class Main {
         float floatMax = Float.MIN_VALUE;
 
         int stringCount = 0;
-        int stringLengthMax = 0;
         int stringLengthMin = Integer.MAX_VALUE;
+        int stringLengthMax = Integer.MIN_VALUE;
+
 
         File intFile = new File(outputPath, prefix + "int.txt");
         File floatFile = new File(outputPath, prefix + "float.txt");
         File stringFile = new File(outputPath, prefix + "string.txt");
 
         for (String file : filesInput) {
-            try (BufferedReader br = new BufferedReader(new FileReader(file))) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8))) {
                 String line;
                 while ((line = br.readLine()) != null) {
                     line = line.trim();
@@ -188,37 +190,64 @@ public class Main {
         }
 
         if (shortStatistics || fullStatistics) {
-            System.out.println("==========Статистика полученных данных==========\n");
+            System.out.println("==========Statistics of dataset==========\n");
         }
 
         if (shortStatistics) {
-            System.out.println("==========Краткая статистика==========\n");
+            System.out.println("==========Short Statistics==========\n");
+
             System.out.println("===int.txt===");
-            System.out.println("Количество элементов: " + integerCount + "\n");
+            System.out.println("Count elements: " + integerCount + "\n");
             System.out.println("===float.txt===");
-            System.out.println("Количество элементов: " + floatCount + "\n");
+            System.out.println("Count elements: " + floatCount + "\n");
             System.out.println("===string.txt===");
-            System.out.println("Количество элементов: " + stringCount + "\n");
+            System.out.println("Count elements: " + stringCount + "\n");
         }
 
         if (fullStatistics) {
-            System.out.println("==========Полная статистика==========\n");
+            System.out.println("==========Full statistics==========\n");
+
             System.out.println("===int.txt===");
-            System.out.println("Количество элементов: " + integerCount);
-            System.out.println("Сумма элементов: " + integerSum);
-            System.out.println("Среднее значение: " + (float) integerSum / integerCount);
-            System.out.println("Минимальный элемент: " + integerMin);
-            System.out.println("Максимальный элемент: " + integerMax + "\n");
+            if(integerCount>0){
+                System.out.println("Count elements: " + integerCount);
+                System.out.println("Sum elements: " + integerSum);
+                System.out.println("Average value: " + (float) integerSum / integerCount);
+                System.out.println("Minimal element: " + integerMin);
+                System.out.println("Maximal element: " + integerMax + "\n");
+            }else {
+                System.out.println("Count elements: " + integerCount);
+                System.out.println("Sum elements: " + integerSum);
+                System.out.println("Average value: There is no average value for type int!");
+                System.out.println("Minimal element: zero!");
+                System.out.println("Maximal element: zero! \n");
+            }
+
+
             System.out.println("===float.txt===");
-            System.out.println("Количество элементов: " + floatCount);
-            System.out.println("Сумма элементов: " + floatSum);
-            System.out.println("Среднее значение: " + floatSum / floatCount);
-            System.out.println("Минимальный элемент: " + floatMin);
-            System.out.println("Максимальный элемент: " + floatMax + "\n");
+            if(floatCount>0){
+                System.out.println("Count elements: " + floatCount);
+                System.out.println("Sum elements: " + floatSum);
+                System.out.println("Average value: " + floatSum / floatCount);
+                System.out.println("Minimal element: " + floatMin);
+                System.out.println("Maximal element: " + floatMax + "\n");
+            }else{
+                System.out.println("Count elements: " + floatCount);
+                System.out.println("Sum elements: " + floatSum);
+                System.out.println("Average value: There is no average value for type float!");
+                System.out.println("Minimal element: zero!");
+                System.out.println("Maximal element: zero! \n");
+            }
+
             System.out.println("===string.txt===");
-            System.out.println("Количество элементов: " + stringCount);
-            System.out.println("Минимальная длина строки: " + stringLengthMin);
-            System.out.println("Максимальная длина строки: " + stringLengthMax);
+            if(stringCount>0){
+                System.out.println("Count elements: " + stringCount);
+                System.out.println("Minimal string length: " + stringLengthMin);
+                System.out.println("Maximal string length: " + stringLengthMax);
+            }else{
+                System.out.println("Count elements: " + stringCount);
+                System.out.println("Minimal string length: String is not fount");
+                System.out.println("Maximal string length: String is not fount");
+            }
         }
 
     }
