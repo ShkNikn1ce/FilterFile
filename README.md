@@ -41,8 +41,9 @@
 
 ## Запуск
 
-- java -jar build/libs/FilterFile-1.0-SNAPSHOT-all.jar -0 . -p sample- -f input_1.txt input_2.txt
-
+``` bash
+    java -jar build/libs/FilterFile-1.0-SNAPSHOT-all.jar -0 . -p sample- -f input_1.txt input_2.txt
+```
 
 
 ## Параметры командной строки
