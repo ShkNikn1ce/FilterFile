@@ -40,6 +40,7 @@
 ---
 
 ## Запуск
+- Запуск утилиты производится из корневой папки проекта: FilterFile
 
 ``` bash
     java -jar build/libs/FilterFile-1.0-SNAPSHOT-all.jar -o . -p sample- -f input_1.txt input_2.txt
