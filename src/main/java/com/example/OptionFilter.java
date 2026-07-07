@@ -65,15 +65,15 @@ public class OptionFilter {
                 File file = new File(fileNew);
 
                 if (!file.exists()) {
-                    throw new ParseException("Файл " +fileNew+ " не найден");
+                    throw new ParseException("Файл " + fileNew + " не найден");
                 }
 
-                if(!file.isFile()){
-                    throw new ParseException(fileNew +" не является файлом");
+                if (!file.isFile()) {
+                    throw new ParseException(fileNew + " не является файлом");
                 }
 
-                if(!fileNew.endsWith(".txt")){
-                    throw new ParseException("Файл "+fileNew+ " не является файлом .txt");
+                if (!fileNew.endsWith(".txt")) {
+                    throw new ParseException("Файл " + fileNew + " не является файлом .txt");
                 }
             }
         } catch (ParseException e) {

@@ -208,13 +208,13 @@ public class Main {
             System.out.println("==========Full statistics==========\n");
 
             System.out.println("===int.txt===");
-            if(integerCount>0){
+            if (integerCount > 0) {
                 System.out.println("Count elements: " + integerCount);
                 System.out.println("Sum elements: " + integerSum);
                 System.out.println("Average value: " + (float) integerSum / integerCount);
                 System.out.println("Minimal element: " + integerMin);
                 System.out.println("Maximal element: " + integerMax + "\n");
-            }else {
+            } else {
                 System.out.println("Count elements: " + integerCount);
                 System.out.println("Sum elements: " + integerSum);
                 System.out.println("Average value: There is no average value for type int!");
@@ -224,13 +224,13 @@ public class Main {
 
 
             System.out.println("===float.txt===");
-            if(floatCount>0){
+            if (floatCount > 0) {
                 System.out.println("Count elements: " + floatCount);
                 System.out.println("Sum elements: " + floatSum);
                 System.out.println("Average value: " + floatSum / floatCount);
                 System.out.println("Minimal element: " + floatMin);
                 System.out.println("Maximal element: " + floatMax + "\n");
-            }else{
+            } else {
                 System.out.println("Count elements: " + floatCount);
                 System.out.println("Sum elements: " + floatSum);
                 System.out.println("Average value: There is no average value for type float!");
@@ -239,11 +239,11 @@ public class Main {
             }
 
             System.out.println("===string.txt===");
-            if(stringCount>0){
+            if (stringCount > 0) {
                 System.out.println("Count elements: " + stringCount);
                 System.out.println("Minimal string length: " + stringLengthMin);
                 System.out.println("Maximal string length: " + stringLengthMax);
-            }else{
+            } else {
                 System.out.println("Count elements: " + stringCount);
                 System.out.println("Minimal string length: String is not fount");
                 System.out.println("Maximal string length: String is not fount");
